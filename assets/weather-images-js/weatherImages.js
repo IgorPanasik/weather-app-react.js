@@ -5,6 +5,8 @@ export const weatherImages = {
 	snow: 'src/assets/icon-weather/cloud-with-snow-svgrepo-com.svg',
 	fog: 'src/assets/icon-weather/mist-svgrepo-com.svg',
 	'clear sky': 'src/assets/icon-weather/sun-svgrepo-com.svg',
+	'clear sky night': 'src/assets/icon-weather/moon-stars-svgrepo-com.svg',
+	'fog night': 'src/assets/icon-weather/moon-fog-svgrepo-com.svg',
 	clouds: 'src/assets/icon-weather/cloud-svgrepo-com.svg',
 	drizzle: 'src/assets/icon-weather/cloud-with-rain-svgrepo-com.svg',
 	rain: 'src/assets/icon-weather/cloud-with-rain-svgrepo-com.svg',
