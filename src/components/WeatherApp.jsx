@@ -263,7 +263,8 @@ const WeatherApp = () => {
 							placeholder='Enter Please a City (Venice, IT)'
 							required
 							value={city}
-							onChange={e => setCity(e.target.value.trim())}
+							onChange={e => setCity(e.target.value)}
+							onBlur={e => setCity(e.target.value.trimEnd())}
 							onKeyPress={handleKeyPress}
 						/>
 						<button
