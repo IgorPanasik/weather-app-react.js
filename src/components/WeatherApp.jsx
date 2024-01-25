@@ -72,6 +72,7 @@ const WeatherApp = () => {
 			const data = await response.json();
 			setWeatherData(data);
 			setCity(data.name); // Set the city based on geolocation
+			fetchForecastByCoordinates(latitude, longitude);
 		} catch (error) {
 			console.error(error.message);
 			setErrorMessage(
@@ -124,7 +125,7 @@ const WeatherApp = () => {
 
 			const data = await response.json();
 			setWeatherData(data);
-			setCity('');
+			fetchForecast();
 		} catch (error) {
 			console.error(error.message);
 			setErrorMessage(
@@ -188,7 +189,7 @@ const WeatherApp = () => {
 		if (description) {
 			let key = description;
 
-			if (isNight && (description === 'clear sky' || description === 'fog')) {
+			if (isNight && (description === 'clear sky' || description === 'mist')) {
 				key += ' night';
 			}
 
@@ -262,7 +263,7 @@ const WeatherApp = () => {
 							placeholder='Enter Please a City (Venice, IT)'
 							required
 							value={city}
-							onChange={e => setCity(e.target.value)}
+							onChange={e => setCity(e.target.value.trim())}
 							onKeyPress={handleKeyPress}
 						/>
 						<button
@@ -277,7 +278,7 @@ const WeatherApp = () => {
 
 				{errorMessage && <p className='error-message'>{errorMessage}</p>}
 				<button
-					title='5 Day Forecast'
+					title='5 Days Forecast'
 					className='weather-five-days'
 					onClick={() => {
 						if (!showForecast) {
@@ -286,7 +287,7 @@ const WeatherApp = () => {
 						setShowForecast(!showForecast);
 					}}
 				>
-					5 Day Forecast
+					5 Days Forecast
 				</button>
 			</div>
 			{weatherData && (
